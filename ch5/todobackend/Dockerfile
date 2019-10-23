@@ -7,7 +7,7 @@ RUN apk add --no-cache bash git
 
 # Install build dependencies
 RUN apk add --no-cache gcc python3-dev libffi-dev musl-dev linux-headers mariadb-dev
-RUN pip3 install wheel -U
+RUN pip3 install  --upgrade pip wheel -U
 
 # Copy requirements
 COPY /src/requirements* /build/

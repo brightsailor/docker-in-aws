@@ -6,15 +6,19 @@ Parameters:
   ApplicationDesiredCount:
     Type: Number
     Description: Desired EC2 instance count
+    Default: 1
   ApplicationImageId:
     Type: String
     Description: ECS Amazon Machine Image (AMI) ID
+    Default: ami-092c71de502b7faae
   ApplicationSubnets:
     Type: List<AWS::EC2::Subnet::Id>
     Description: Target subnets for EC2 instances
+    Default: subnet-0765d108bf22e49ac,subnet-07c113b1558b96327
   VpcId:
     Type: AWS::EC2::VPC::Id
     Description: Target VPC
+    Default: vpc-031d5fd0d29584eb9
 
 Resources:
   ApplicationAutoscalingSecurityGroup:
@@ -114,7 +118,7 @@ Resources:
     Properties:
       ImageId: !Ref ApplicationImageId
       InstanceType: t2.micro
-      KeyName: admin
+      KeyName: admin-docker_on_aws
       IamInstanceProfile: !Ref ApplicationAutoscalingInstanceProfile
       SecurityGroups:
         - !Ref ApplicationAutoscalingSecurityGroup
