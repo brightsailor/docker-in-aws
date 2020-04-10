@@ -13,7 +13,7 @@ Resources:
         - Sid: RemoteAccountAccess
           Effect: Allow
           Principal:
-            AWS: arn:aws:iam::158949774536:root
+            AWS: arn:aws:iam::171589350267:root
             Service: codebuild.amazonaws.com
           Action:
           - ecr:GetDownloadUrlForLayer

@@ -313,9 +313,9 @@ Resources:
     Type: AWS::RDS::DBInstance
     Properties:
       Engine: MySQL
-      EngineVersion: 5.7
+      EngineVersion: 8.0.16
       DBInstanceClass: db.t2.micro
-      AllocatedStorage: 10
+      AllocatedStorage: 22
       StorageType: gp2
       MasterUsername: todobackend
       MasterUserPassword:
@@ -346,7 +346,7 @@ Resources:
         - IpProtocol: icmp
           FromPort: -1
           ToPort: -1
-          CidrIp: 192.0.2.0/32
+          CidrIp: 172.31.0.0/16
       Tags:
         - Key: Name
           Value: !Sub ${AWS::StackName}-db-sg
@@ -463,7 +463,7 @@ Resources:
     Properties:
       ImageId: !Ref ApplicationImageId
       InstanceType: t2.micro
-      KeyName: admin
+      KeyName: admin-docker_on_aws
       IamInstanceProfile: !Ref ApplicationAutoscalingInstanceProfile
       SecurityGroups:
         - !Ref ApplicationAutoscalingSecurityGroup
